@@ -21,7 +21,7 @@ class AdventDay:
 
         return total
     
-    def part_two(self):
+    def part_three(self):
         total = 0
 
         return total
@@ -31,17 +31,17 @@ if __name__ == '__main__':
     example1 = AdventDay('example1')
     print('Example Part 1 -', example1.part_one())
     
+    # input1 = AdventDay('input1')
+    # print('Input Part 1 -', input1.part_one())
+    
     # example2 = AdventDay('example2')
     # print('Example Part 2 -', example2.part_two())
     
-    # example3 = AdventDay('example3')
-    # print('Example Part 3 -', example3.part_three())
-
-    # input1 = AdventDay('input1')
-    # print('Input Part 1 -', input1.part_one())
-
     # input2 = AdventDay('input2')
     # print('Input Part 2 -', input2.part_two())
+
+    # example3 = AdventDay('example3')
+    # print('Example Part 3 -', example3.part_three())    
 
     # input3 = AdventDay('input3')
     # print('Input Part 3 -', input3.part_three())
