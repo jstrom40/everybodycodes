@@ -2,17 +2,21 @@ class AdventDay:
 
     def __init__(self, example):
         self.file = self._read_file(example)
-        self._process_data()
+        
     
     def _read_file(self, file_name):
         with open(file_name, 'r') as f:
             return f.read().splitlines()
 
     def _process_data(self):
-        return None
+        data = self.file
+        return data
     
     def part_one(self):
         total = 0
+
+        data = self._process_data()
+        print(data)
         
         return total
 

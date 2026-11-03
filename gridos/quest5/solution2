@@ -1,0 +1,30 @@
+HEADS AAABBB
+
+START ****** SETUP ****** SDDLLS
+SETUP ****** INIT ****** SSDLSS
+INIT ****** MAIN_TOP +***** RRRSSS
+
+MAIN_TOP .@.*** MAIN_TOP +***** RRRSSS
+MAIN_TOP ...*** MAIN_BOT +++*** RRRSSS
+MAIN_TOP ___+++ MAIN_HOR ****** SSSDDD
+
+MAIN_BOT .@.*** MAIN_BOT .@+*** RRRSSS
+MAIN_BOT ...*** MAIN_TOP +++*** RRRSSS
+MAIN_BOT ___+++ HOR ****** SSSDDD
+
+HOR ___+@+ HOR ****** SSSDDD
+HOR ___+.+ HORL ****+* SSSDDD
+
+HOR ______ STOP ****** SSSSSS
+HOR ***@@+ HOR ****** SSSDDD
+HOR ***..+ HORL ***+++ SSSDDD
+
+HORL ***.@. HORL ***+@. SSSDDD
+HORL ***... HORR ***+++ SSSDDD
+HORL ***+++ HORL ****** SSSDDD
+HORL ______ STOP ****** SSSSSS
+
+HORR ***.@. HORR ***.@+ SSSDDD
+HORR ___... HORR ***+++ SSSSSS
+HORR ___+++ HORL ****** SSSSSS
+HORR ______ STOP ****** SSSSSS

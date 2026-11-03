@@ -31,7 +31,6 @@ class AdventDay:
 
         for target in self.data:
             amount = self.optimizer(target)
-            # print(target, '-' ,amount)
             total += amount
         
         return total

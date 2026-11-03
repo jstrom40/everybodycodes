@@ -1,0 +1,13 @@
+/************************
+Solution 1 - mine
+************************/
+HEADS AAAA
+
+START **** MAIN **** LSRD
+
+MAIN *#** MAIN **** RRRR
+MAIN #=** MAIN *~** RRRR
+MAIN ~=#_ MAIN *~** RRRR
+MAIN ~==* MAIN *~*~ RRRR
+
+MAIN #___ STOP **** RRRR

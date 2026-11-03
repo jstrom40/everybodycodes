@@ -1,0 +1,18 @@
+HEADS AAA
+
+START *** MAIN *** SRS
+
+MAIN #=* MAIN *** RRS
+MAIN ==* MAIN *** RRS
+MAIN =|* DOWN |_* DDD
+MAIN #|# MAIN *** DDD
+MAIN ___ STOP *** SSS
+
+DOWN **# LEFT *** LLS
+DOWN **_ STOP *** SSS
+
+LEFT __# LEFT *** LLS
+LEFT |_# LEFT *** LLS
+LEFT #|# MAIN *** SSS
+LEFT =!# LEFT *** LLS
+LEFT #=# MAIN *** RRS

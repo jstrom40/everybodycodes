@@ -37,16 +37,16 @@ class AdventDay:
         return total
     
     def _is_child(self, child, parents):
-        parents_flipped = [list(col) for col in zip(*parents)]
+        parent_combos = [list(col) for col in zip(*parents)]
         total = 0
         total_1 = 0
         total_2 = 0
         for i, val in enumerate(child):
-            if val not in parents_flipped[i]:
+            if val not in parent_combos[i]:
                 return 0
             else:
-                total_1 += parents_flipped[i][0].count(val)
-                total_2 += parents_flipped[i][1].count(val)
+                total_1 += parent_combos[i][0].count(val)
+                total_2 += parent_combos[i][1].count(val)
         total = total_1 * total_2
         return total
     

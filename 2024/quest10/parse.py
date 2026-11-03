@@ -15,6 +15,8 @@ class AdventDay:
     def _process_data(self):
         if self.file_name == 'input2':
             data = self.file
+        elif '3' in self.file_name:
+            data = self.file
         else:
             data = [list(x) for x in self.file]
         self.alphabet = 'abcdefghijklmnopqrstuvwxyz'
@@ -32,8 +34,6 @@ class AdventDay:
             for y, col in enumerate(row):
                 if col == '.':
                     common = list(set(row_grid[x]) & set(col_grid[y]) ^ set(['.']))[0]
-                    row_grid[x][y] = common
-                    col_grid[y][x] = common
                     total += common
         
         return total
@@ -47,14 +47,32 @@ class AdventDay:
             total = self.calc_power(runic_word)
         else:
             grids = self._process_data()
+            new_grids = []
+
             for g in grids:
-                g = g.split()
-                print('here')
+                g = g.splitlines()
+                new_list = [[] for _ in range(15)]
+                new_list = [[] for _ in range(15)]
+                for row in g:
+                    row = row.split()
+                    for index, subrow in enumerate(row):
+                        new_list[index].append(subrow)
+                new_grids.append(new_list)
+            
+            for x in new_grids:
+                for y in x:
+                    y = [list(col) for col in y]
+                    runic_word = self.runic_word(y)
+                    total += self.calc_power(runic_word)
         
         return total
     
     def part_three(self):
         total = 0
+
+        grid = self._process_data()
+
+        print(grid)
 
         return total
     
@@ -94,8 +112,8 @@ if __name__ == '__main__':
     input2 = AdventDay('input2')
     print('Input Part 2 -', input2.part_two())
 
-    # example3 = AdventDay('example3')
-    # print('Example Part 3 -', example3.part_three())    
+    example3 = AdventDay('example3')
+    print('Example Part 3 -', example3.part_three())    
 
     # input3 = AdventDay('input3')
     # print('Input Part 3 -', input3.part_three())

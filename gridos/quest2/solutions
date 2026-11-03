@@ -1,0 +1,119 @@
+/************************
+Solution 1
+************************/
+HEADS A
+
+START A CHECKPAIRA * R
+START B CHECKPAIRB * R
+START _ STOP * S
+
+CHECKPAIRA _ REMOVE * L
+CHECKPAIRA A REPLACE * L
+CHECKPAIRA B REMOVE * L
+
+CHECKPAIRB _ REMOVE * L
+CHECKPAIRB A REMOVE * L
+CHECKPAIRB B REPLACE * L
+
+REMOVE * START _ R
+REPLACE * START @ R
+
+/************************
+Solution 1 - faster
+************************/
+HEADS A
+
+START A CHECKPAIRA _ R
+START B CHECKPAIRB _ R
+
+CHECKPAIRA _ STOP * S
+CHECKPAIRA A CHECKPAIRA @ R
+CHECKPAIRA B CHECKPAIRB _ R
+
+CHECKPAIRB _ STOP * S
+CHECKPAIRB A CHECKPAIRA _ R
+CHECKPAIRB B CHECKPAIRB @ R
+
+/************************
+Solution 1 - Multi-head
+************************/
+HEADS AA
+
+START ** READ ** SR
+
+READ AA READ @* RR
+READ BB READ @* RR
+
+READ AB READ _* RR
+READ BA READ _* RR
+
+READ *_ STOP _* SS
+
+/************************
+Solution 2
+************************/
+HEADS A
+
+START A CHECKPAIRA * R
+START B CHECKPAIRB * R
+START _ DOWN * D
+
+DOWN _ LEFT * L
+LEFT ! LEFT * L
+LEFT _ RIGHT * R
+RIGHT ! START * S
+RIGHT _ STOP * S
+
+CHECKPAIRA _ REMOVE * L
+CHECKPAIRA A REPLACE * L
+CHECKPAIRA B REMOVE * L
+
+CHECKPAIRB _ REMOVE * L
+CHECKPAIRB A REMOVE * L
+CHECKPAIRB B REPLACE * L
+
+REMOVE * START _ R
+REPLACE * START @ R
+
+/************************
+Solution 2 - faster?
+************************/
+HEADS A
+
+START A CHECKPAIRA _ R
+START B CHECKPAIRB _ R
+
+CHECKPAIRA _ DOWN * D
+CHECKPAIRA A CHECKPAIRA @ R
+CHECKPAIRA B CHECKPAIRB _ R
+
+CHECKPAIRB _ DOWN * D
+CHECKPAIRB A CHECKPAIRA _ R
+CHECKPAIRB B CHECKPAIRB @ R
+
+DOWN _ BACKTRACK * L
+
+BACKTRACK ! BACKTRACK * L
+BACKTRACK _ START * R
+
+/************************
+Solution 2 - multi head
+************************/
+HEADS AA
+
+START ** READ ** SR
+
+READ AA READ @* RR
+READ BB READ @* RR
+
+READ AB READ _* RR
+READ BA READ _* RR
+
+READ !_ DOWN ** DD
+
+DOWN !_ BACKTRACK ** LL
+
+BACKTRACK !! BACKTRACK ** LL
+BACKTRACK _! START ** RR
+
+

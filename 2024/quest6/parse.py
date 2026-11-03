@@ -1,5 +1,4 @@
-from heapq import heappop, heappush
-from collections import defaultdict, Counter
+from collections import Counter
 
 class AdventDay:
 
