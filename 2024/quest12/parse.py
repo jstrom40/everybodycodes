@@ -22,9 +22,19 @@ class AdventDay:
         total = 0
         
         grid = self._process_data()
+        knights = {}
+        targets = set()
 
-        print(self.find_point(grid, 'C'))
-        print(self.find_point(grid, 'T'))
+        for x, row in enumerate(grid):
+            for y, col in enumerate(row):
+                if col in ('ABC'):
+                    knights[col] = (x, y)
+                if col == 'T':
+                    targets.add((x, y))
+
+        print(targets)
+        print(knights)
+
         
         return total
 
@@ -37,13 +47,6 @@ class AdventDay:
         total = 0
 
         return total
-
-    def find_point(self, grid, point):
-
-        for x, row in enumerate(grid):
-            for y, col in enumerate(row):
-                if col == point:
-                    return (x, y)
 
 if __name__ == '__main__':
     example1 = AdventDay('example1')

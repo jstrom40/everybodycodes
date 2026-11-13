@@ -27,6 +27,9 @@ class AdventDay:
     def part_two(self):
         total = 0
 
+        self._process_data()
+        sx, sy = self.find_start()
+
         return total
     
     def part_three(self):

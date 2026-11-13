@@ -7,3 +7,6 @@
 
 * DFS but multiple locations needed (part 2 is the start of that)
     * [2024/quest15](2024/quest15/parse.py)
+
+* Diagonal traversal (hexagonal thing)
+    * [2026/quest8](2026/quest8/parse_v2.py)

@@ -28,41 +28,61 @@ class AdventDay:
     def part_two(self):
         total = 0
 
+        longer_list = set()
+        for word in self.validate_words:
+            longer_list.add(word[::-1])
+
+        self.validate_words.extend(longer_list)
+
         for line in self.sentences:
-            subtotal = 0
             for word in line.split(' '):
+                subtotal = set()
                 for v_word in self.validate_words:
-                    word_count = self.count_occurrences(word, v_word)
-                    subtotal += word_count
-                    if word_count > 0:
-                        print(word, v_word, word_count)
-                    
-            print(line, subtotal)
-            total += subtotal
-
-
+                    if v_word in word:
+                        for i in range(len(word) - len(v_word) + 1):
+                            if word[i:i+len(v_word)] == v_word:
+                                subtotal.update(range(i, i+len(v_word)))
+                total += len(subtotal)
 
         return total
     
     def part_three(self):
         total = 0
 
-        return total
-    
-    def count_occurrences(self, word, validation_word):
-        total = 0
-        validation_len = len(validation_word)
-        word_len = len(word)
-        word_reversed = word[::-1]
-        if validation_len > word_len:
-            return 0
-        for i in range(word_len - validation_len + 1):
-            if validation_word == word[0+i:i+validation_len]:
-                total += validation_len
-            if validation_word == word_reversed[0+i:i+validation_len]:
-                total += validation_len
+        longer_list = set()
+        for word in self.validate_words:
+            longer_list.add(word[::-1])
+
+        self.validate_words.extend(longer_list)
+        matches = set()
+        for idx,word in enumerate(self.sentences):
+            matches.update(self.validate_word(word, idx))
+        # matches = sorted(matches)
+        
+
+        for i in range(len(self.sentences[0])):
+            word = ''
+            for j in range(len(self.sentences)):
+                word += self.sentences[j][i]
+            matches.update(self.validate_word(word,i,True))
+        total = len(matches)
         return total
 
+    def validate_word(self, word, idx,up=False):
+        n_len = len(word)
+        test = word * 2 if not up else word
+        submatches = set()
+        for v_word in self.validate_words:
+            if v_word in test:
+                for i in range(len(test) - len(v_word) + 1):
+                    if test[i:i+len(v_word)] == v_word:
+                        for j in range(i,i+len(v_word)):
+                            fixed_j = j % len(word)
+                            if up:
+                                submatches.add((fixed_j, idx))
+                            else:
+                                submatches.add((idx, fixed_j))
+        return submatches
 
 
 if __name__ == '__main__':
@@ -75,11 +95,11 @@ if __name__ == '__main__':
     example2 = AdventDay('example2')
     print('Example Part 2 -', example2.part_two())
     
-    # input2 = AdventDay('input2')
-    # print('Input Part 2 -', input2.part_two())
+    input2 = AdventDay('input2')
+    print('Input Part 2 -', input2.part_two())
 
-    # example3 = AdventDay('example3')
-    # print('Example Part 3 -', example3.part_three())    
+    example3 = AdventDay('example3')
+    print('Example Part 3 -', example3.part_three())    
 
-    # input3 = AdventDay('input3')
-    # print('Input Part 3 -', input3.part_three())
+    input3 = AdventDay('input3')
+    print('Input Part 3 -', input3.part_three())
