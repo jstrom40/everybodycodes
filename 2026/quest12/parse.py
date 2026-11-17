@@ -19,9 +19,26 @@ class AdventDay:
         self.y_len = len(self.file[0])
     
     def part_one(self):
+        total = self.bfs()
+        
+        return total
+
+    def part_two(self):
+
+        total = self.bfs()
+
+        return total
+    
+    def part_three(self):
+        total = 0
+
+        return total
+
+    def bfs(self):
         total = 0
 
         seen = set()
+
         for x, y in self.magma:
             if (x, y) in seen:
                 continue
@@ -41,18 +58,10 @@ class AdventDay:
                     # print(subtotal)
                     distinct_x = {x for x, y in subtotal}
                     distinct_y = {y for x, y in subtotal}
+                    test = min(len(distinct_x), len(distinct_y))
+                    print(test)
                     total += min(len(distinct_x), len(distinct_y))
                     break
-        return total
-
-    def part_two(self):
-        total = 0
-
-        return total
-    
-    def part_three(self):
-        total = 0
-
         return total
 
 
@@ -63,8 +72,8 @@ if __name__ == '__main__':
     input1 = AdventDay('input1')
     print('Input Part 1 -', input1.part_one())
     
-    # example2 = AdventDay('example2')
-    # print('Example Part 2 -', example2.part_two())
+    example2 = AdventDay('example2')
+    print('Example Part 2 -', example2.part_two())
     
     # input2 = AdventDay('input2')
     # print('Input Part 2 -', input2.part_two())
